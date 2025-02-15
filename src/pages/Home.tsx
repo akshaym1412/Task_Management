@@ -75,7 +75,6 @@ const Home: React.FC = () => {
   const [newStatus, setNewStatus] = useState<string>("");
   const [allTasks, setAllTasks] = useState<Task[]>([]);
   const [option, setOption] = useState<string>("");
-//   const [selectedDate, setSelectedDate] = useState<string>("");
   const [task, setTask] = useState<boolean>(false);
   const [isAddTask, setIsAddTask] = useState<boolean>(false);
   const [editTask, setEditTask] = useState<boolean>(false);
@@ -248,13 +247,6 @@ const filteredTasks = allTasks
   <option value="Completed">Completed</option>
   <option value="">None</option>
 </select>
-{/* <input
-  type="date"
-  id="due_date"
-  className="border ml-2 border-gray-400 p-1 rounded-3xl"
-  value={filterDate}
-  onChange={(e) => setFilterDate(e.target.value)}
-/> */}
 <div className={`relative inline-block ${filterDate ? "w-36" : "w-32"} ml-2`}>
       {/* Button */}
       <button
@@ -388,7 +380,7 @@ const filteredTasks = allTasks
         task.status === status
       : task.status === status
   )
-  .slice(0, getVisibleCount(status)) // Only show 'visibleTasks' count
+  .slice(0, getVisibleCount(status)) 
   .map((task: Task) => (
     <div
       key={task.id}

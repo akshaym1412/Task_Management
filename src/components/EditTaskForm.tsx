@@ -29,7 +29,6 @@ const EditTaskForm: React.FC<EditTaskFormProps> = ({ setEditTask, task, id, fetc
     file: null,
   });
 
-  console.log(tasks);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setTasks({ ...tasks, [e.target.name]: e.target.value });
@@ -53,7 +52,6 @@ const EditTaskForm: React.FC<EditTaskFormProps> = ({ setEditTask, task, id, fetc
     };
 
     await updateTask(id, newTask);
-    console.log("Task submitted:", newTask);
 
     setTasks({
       title: "",
@@ -70,9 +68,9 @@ const EditTaskForm: React.FC<EditTaskFormProps> = ({ setEditTask, task, id, fetc
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-opacity-30 backdrop-blur-sm z-50">
-      {/* Modal Box */}
+
       <div className="bg-white lg:w-3/5 max-w-4xl rounded-4xl shadow-lg relative">
-        {/* Close Button */}
+
         <button
           onClick={() => setEditTask(false)}
           className="absolute top-4 right-4 text-gray-600 hover:text-black text-2xl cursor-pointer"
@@ -80,7 +78,6 @@ const EditTaskForm: React.FC<EditTaskFormProps> = ({ setEditTask, task, id, fetc
           <IoClose />
         </button>
 
-        {/* Modal Title */}
         <h2 className="text-2xl font-medium mb-4 pl-5 pt-5 h-16">Update Task</h2>
 
         {/* Form Fields */}

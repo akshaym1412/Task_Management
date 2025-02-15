@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-// ✅ Define user type
 interface User {
   uid: string;
   email?: string;
@@ -8,17 +7,14 @@ interface User {
   photoURL?: string;
 }
 
-// ✅ Define initial state type
 interface AuthState {
    user: Partial<User> | null;
 }
 
-// ✅ Initial state
 const initialState: AuthState = {
   user: null,
 };
 
-// ✅ Create slice with types
 const authSlice = createSlice({
   name: "auth",
   initialState,
@@ -32,6 +28,5 @@ const authSlice = createSlice({
   },
 });
 
-// ✅ Export actions and reducer
 export const { setUserLogin, logoutUser } = authSlice.actions;
 export default authSlice.reducer;

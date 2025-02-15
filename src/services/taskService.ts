@@ -10,7 +10,7 @@ import {
   where,
 } from "firebase/firestore";
 
-// Define Task Type
+
 interface Task {
   id?: string;
   title: string;

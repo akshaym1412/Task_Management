@@ -3,13 +3,12 @@ import { setUserLogin, logoutUser } from "../redux/authSlice";
 import { Dispatch } from "@reduxjs/toolkit";
 import { NavigateFunction } from "react-router-dom";
 
-// ✅ Define expected props for dispatch and navigate
 type AuthFunctionProps = {
   dispatch: Dispatch;
   navigate: NavigateFunction;
 };
 
-// ✅ Define the User type that matches Redux store
+
 interface User {
   uid: string;
   email?: string;
@@ -17,7 +16,6 @@ interface User {
   photoURL?: string;
 }
 
-// ✅ Function to handle login
 export const handleLogin = async ({ dispatch, navigate }: AuthFunctionProps) => {
   try {
     const result = await signInWithPopup(
@@ -29,15 +27,14 @@ export const handleLogin = async ({ dispatch, navigate }: AuthFunctionProps) => 
       throw new Error("User data is missing UID");
     }
 
-    // ✅ Explicitly define Partial<User>
     const userData: Partial<User> = {
-      uid: result.user.uid, // Always present due to check above
+      uid: result.user.uid, 
       email: result.user.email ?? "",
       displayName: result.user.displayName ?? "",
       photoURL: result.user.photoURL ?? "",
     };
 
-    dispatch(setUserLogin(userData)); // ✅ Redux now expects Partial<User>
+    dispatch(setUserLogin(userData)); 
     navigate("/home");
 
     console.log("User Logged In:", userData);
@@ -46,7 +43,6 @@ export const handleLogin = async ({ dispatch, navigate }: AuthFunctionProps) => 
   }
 };
 
-// ✅ Function to handle logout
 export const handleLogout = async ( dispatch: Dispatch<any>, navigate: NavigateFunction) => {
   try {
     await signOut(auth);

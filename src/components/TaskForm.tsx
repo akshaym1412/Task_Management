@@ -41,7 +41,7 @@ const TaskForm: React.FC<TaskFormProps> = ({ setAddtask1, fetchTasks }) => {
 
 const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
   if (e.target.files && e.target.files[0]) {
-    setFile(e.target.files[0]); // ✅ Store the selected file
+    setFile(e.target.files[0]); 
   }
 };
 

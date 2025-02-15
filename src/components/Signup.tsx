@@ -11,7 +11,6 @@ const Signup: React.FC = () => {
 
   return (
     <div className="flex flex-col lg:flex-row justify-center items-center md:gap-20 lg:gap-0 pt-40 md:pt-20 lg:pt-0 lg:justify-between w-full h-screen lg:pl-0 lg:p-5">
-      {/* Left Section (Text + Button) */}
       <div className="flex flex-col justify-center items-center text-start lg:items-start lg:text-center md:text-left gap-3 px-5 lg:pl-20 w-full lg:w-[35%]">
         <div className="flex items-center gap-1">
           <LuNotepadText size={30} color="#7B1984" />
@@ -35,7 +34,6 @@ const Signup: React.FC = () => {
         </button>
       </div>
 
-      {/* Right Section (SVG Illustration) */}
       <div className="flex justify-center items-center w-full md:w-[65%] mt-10 md:mt-0">
         <svg
           width="300"

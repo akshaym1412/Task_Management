@@ -1,50 +1,54 @@
-# React + TypeScript + Vite
+Task Manager
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a task management web application built using React, TypeScript, Tailwind CSS, and Firebase Firestore for data storage. It allows users to create, edit, filter, and manage tasks.
 
-Currently, two official plugins are available:
+Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+-- User authentication with Firebase.
 
-## Expanding the ESLint configuration
+-- Task creation, editing, and deletion.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+-- Filtering tasks by category and due date.
 
-- Configure the top-level `parserOptions` property like this:
+-- File upload functionality using Firebase Storage (or Cloudinary alternative).
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+-- Responsive UI with Tailwind CSS.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+Prerequisites
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+-- Ensure you have the following installed:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+-- Node.js (LTS version recommended)
+
+-- npm or yarn
+
+-- A Firebase project with Firestore and Authentication enabled
+
+Installation
+
+1. Clone the repository
+   
+   git clone https://github.com/akshaym1412/Task_Management.git
+   cd task_management
+
+2. npm install  # or yarn install
+
+Environment Setup
+
+1. Create a .env file in the project root and add the following:
+
+VITE_FIREBASE_API_KEY=your_api_key
+VITE_FIREBASE_AUTH_DOMAIN=your_auth_domain
+VITE_FIREBASE_PROJECT_ID=your_project_id
+VITE_FIREBASE_STORAGE_BUCKET=your_storage_bucket
+VITE_FIREBASE_MESSAGING_SENDER_ID=your_messaging_sender_id
+VITE_FIREBASE_APP_ID=your_app_id
+
+Get these values from your Firebase Console.
+
+Running the Project
+
+1. Start the development server
+---  npm run dev  # or yarn dev
+
+2. Open http://localhost:5173 in your browser.
