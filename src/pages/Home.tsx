@@ -456,7 +456,7 @@ const filteredTasks = allTasks
 )}      </div>
 )}
   </div>
-)) : <img src="src/assets/image.png" className="h-40 w-48 lg:h-60 lg:w-80 mx-auto mt-40"></img>}
+)) : <img src="/images/image.png" className="h-40 w-48 lg:h-60 lg:w-80 mx-auto mt-40"></img>}
 
         </div>}
         {activeTab === "board" && 
