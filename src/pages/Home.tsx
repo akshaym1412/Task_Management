@@ -27,7 +27,7 @@ interface Task {
   category: string;
   dueDate: string;
   status: string;
-  file?: File | null;
+  files?: string[] ;
 }
 
 interface RootState {
@@ -51,7 +51,7 @@ const Home: React.FC = () => {
     category: "",
     dueDate: "",
     status: "",
-    file: null,
+    files: []
   });
   const getVisibleCount = (status: string): number => visibleTasks[status] || 4;
   const [selectedTasks, setSelectedTasks] = useState<string[]>([]);
@@ -135,6 +135,7 @@ const Home: React.FC = () => {
       category: tasks.category,
       dueDate: tasks.dueDate,
       status: tasks.status,
+      files:tasks.files,
     };
     await addTask(newTask);
     setTasks({
@@ -144,7 +145,7 @@ const Home: React.FC = () => {
       category: "Work",
       dueDate: "",
       status: "Todo",
-      file: null,
+      files: [],
     });
     fetchTasks();
     setError("");
@@ -229,7 +230,6 @@ const filteredTasks = allTasks
 
         </header>
         <div className="flex justify-between items-center w-full lg:hidden">
-  {/* Other content here */}
   
   <button className="bg-[#7b1984] text-white p-1 px-5 rounded-4xl uppercase cursor-pointer  ml-auto" 
     onClick={() => setAddTask1(true)}>
@@ -248,7 +248,6 @@ const filteredTasks = allTasks
   <option value="">None</option>
 </select>
 <div className={`relative inline-block ${filterDate ? "w-36" : "w-32"} ml-2`}>
-      {/* Button */}
       <button
        onClick={() => (document.getElementById("due_date") as HTMLInputElement | null)?.showPicker()}
        className="flex items-center gap-2 px-4 pb-2  border border-gray-400 rounded-3xl text-gray-600 cursor-pointer w-full"
@@ -257,7 +256,6 @@ const filteredTasks = allTasks
         {filterDate ? filterDate : "Due on"}
       </button>
 
-      {/* Hidden Input */}
       <input
         type="date"
         id="due_date"
@@ -301,7 +299,7 @@ const filteredTasks = allTasks
   <h3 className="col-span-1"></h3>
 </div> }
 
-            { visibleSections.length>0 ?visibleSections.map(({ title,color, status }) => (
+  { visibleSections.length>0 ?visibleSections.map(({ title,color, status }) => (
   <div key={status} className={`bg-[#f1f1f1] ${open[status] ? "min-h-[300px]" : "h-auto"} mb-10 mt-8 lg:mt-0`}>
     { title === "Todo" ? 
     <div> <header className='bg-[#fac3ff] rounded-t-xl p-3 pl-3 flex justify-between text-lg font-[500] '>
@@ -316,7 +314,7 @@ const filteredTasks = allTasks
             <div className='hidden lg:grid lg:grid-cols-6'>
                 <input type='text' placeholder='Task Title' value={tasks.title} name="title" onChange={handleChange} className="col-span-2 w-96 px-3 border border-gray-300 rounded-lg focus:outline-none"></input>
                 <div className="relative inline-block col-span-1 w-36">
-      {/* Button */}
+    
       <button
        onClick={() => (document.getElementById("dateInput") as HTMLInputElement | null)?.showPicker()}
        className="flex items-center gap-2 px-4 py-2 border border-gray-400 rounded-3xl text-gray-600 cursor-pointer w-full"
@@ -325,7 +323,6 @@ const filteredTasks = allTasks
         {tasks.dueDate ? tasks.dueDate : "Add date"}
       </button>
 
-      {/* Hidden Input */}
       <input
         type="date"
         id="dateInput"
@@ -359,7 +356,7 @@ const filteredTasks = allTasks
                     category: "",
                     dueDate: "",
                     status: "",
-                    file: null,
+                    files: [],
                   });}}>CANCEL</p>
                   {error!="" ? <div className="text-red-500 ml-5 mt-1 font-semibold">{error}</div> : <div></div>}
             </div>
