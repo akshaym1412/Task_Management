@@ -45,7 +45,7 @@ const Home: React.FC = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [tasks, setTasks] = useState<Task>({
-    user: user.email,
+    user: user?.email,
     title: "",
     description: "",
     category: "",
@@ -191,6 +191,15 @@ const filteredTasks = allTasks
   };
 
   const editedTask = allTasks.filter((task) => task.id === taskId);
+
+  if (!user) {
+    return (
+      <div className="flex flex-col items-center justify-center h-screen text-xl font-semibold">
+       <div> Please login to access this page.</div>
+       <div onClick={()=>{navigate("/")}} className="text-blue-600 underline cursor-pointer">Click to Sign In</div>
+      </div>
+    );
+  }
 
   return (
     <div className='p-5 relative'>

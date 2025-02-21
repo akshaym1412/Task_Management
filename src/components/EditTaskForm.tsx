@@ -273,7 +273,7 @@ const EditTaskForm: React.FC<EditTaskFormProps> = ({ setEditTask, task, id, fetc
             tasks?.activities?.map((activity, index) => (
               <div key={index} className="activity-item flex gap-2 mb-[6px] text-[12px] justify-between">
                 <p className="w-[65%]">{activity.action}</p>
-                <span className="w-[35%] text-end">{activity.timestamp}</span>
+                <span className="w-[36%] text-end">{activity.timestamp}</span>
               </div>
             )
           ) }
